@@ -29,6 +29,7 @@ export default function Home({ screenWidth, children }) {
     
     useEffect(() => {
         if (!user) {
+            
             userInfo().then(info => {
                 console.log("Usuario Conectado", info)
             })
@@ -86,7 +87,7 @@ export default function Home({ screenWidth, children }) {
 
     return (<>
 
-        {
+        {user &&
             <div className="flex justify-center items-start ">
                
                 {/* Seccion Izquierda */}
