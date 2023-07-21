@@ -1,9 +1,9 @@
-import '@/styles/globals.css'
+import '../styles/globals.css'
 import { ThemeProvider } from 'next-themes'
 import React, { useEffect, useState } from 'react';
 import { UserProvider } from '../utils/userContext';
 import { useTheme } from "next-themes";
-import ConfirmModal from "@/components/ConfirmModal"
+import ConfirmModal from "../components/ConfirmModal"
 
 export default function App({ Component, pageProps }) {
     const { resolvedTheme } = useTheme();
