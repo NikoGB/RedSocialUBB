@@ -8,10 +8,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import { UserContext } from '../utils/userContext';
 
 
-import Header from "@/components/Header"
-import Chat from "@/components/Chat";
-import FriendsList from "@/components/FriendList";
-import EventList from "@/components/EventList";
+import Header from "../components/Header"
+import Chat from "../components/Chat";
+import FriendsList from "../components/FriendList";
+import EventList from "../components/EventList";
 
 
 export default function Home({ screenWidth, children }) {
