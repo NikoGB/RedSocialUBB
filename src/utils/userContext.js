@@ -45,7 +45,7 @@ export const UserProvider = ({ children }) => {
                 id : "0",
                     username : "Jaime",
                     correo : "AAA",
-                    foto_perfil : undefined,
+                    foto_perfil : "",
                     chats : [],
                     amigos : [],
                     publicaciones : [],
