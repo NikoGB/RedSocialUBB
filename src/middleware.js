@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function middleware(req) {
+    return NextResponse.next()
+    
     const cookie = "a";//req.cookies.get('user')?.value
     const url = new URL(req.url, `http://${req.headers.host}`)
     const page = url.pathname
