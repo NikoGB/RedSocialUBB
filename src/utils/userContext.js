@@ -50,7 +50,7 @@ export const UserProvider = ({ children }) => {
                     amigos : [],
                     publicaciones : [],
                     comentarios: [],
-                    intereses []
+                    intereses: []
             }
             /* const savedUser = localStorage.getItem('user');
             if(savedUser){
