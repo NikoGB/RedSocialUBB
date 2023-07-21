@@ -86,7 +86,7 @@ export default function Home({ screenWidth, children }) {
 
     return (<>
 
-        {user &&
+        {
             <div className="flex justify-center items-start ">
                
                 {/* Seccion Izquierda */}
