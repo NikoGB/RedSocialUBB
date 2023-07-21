@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from 'react';
 
 export const UserContext = createContext();
 import { clientMutator, clientRequester, } from "./graphqlManager.js";
-import { socketPromise } from "@/utils/socketManager.js";
+import { socketPromise } from "../utils/socketManager.js";
 
 const chatContent = ` 
 id
