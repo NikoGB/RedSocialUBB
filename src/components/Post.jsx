@@ -1,7 +1,7 @@
 import { AiFillHeart, AiOutlineComment, AiOutlineSend, AiOutlineMenu, AiOutlinePicture } from "react-icons/ai";
 
 import React, { useState, useEffect } from 'react';
-import ImgsDisplay from "@/components/ImgsDisplay"
+import ImgsDisplay from "../components/ImgsDisplay"
 import { debounce } from 'lodash';
 
 export default function Post({ post, addComment, removePost, likePost, usuario, inFriends, modal }) {
