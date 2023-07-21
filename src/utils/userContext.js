@@ -40,7 +40,18 @@ export const UserProvider = ({ children }) => {
 
     const userInfo = async () => { //ONCE PER START OF PAGE
         if (!user) {
+            return {
 
+                id : "0",
+                    username : "Jaime",
+                    correo : "AAA",
+                    foto_perfil : undefined,
+                    chats : [],
+                    amigos : [],
+                    publicaciones : [],
+                    comentarios: [],
+                    intereses []
+            }
             /* const savedUser = localStorage.getItem('user');
             if(savedUser){
                 const us = JSON.parse(savedUser);
