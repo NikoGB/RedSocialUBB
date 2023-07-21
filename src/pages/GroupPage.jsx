@@ -8,7 +8,7 @@ import Header from "../components/header";
 import ProfileDisplay from "../components/profileDisplay";
 import RecentGroups from "../components/recentGroups";
 import FriendList from "../components/friendList";
-import EventList from "@/components/EventList";
+import EventList from "../components/EventList";
 
 export default function GroupPage() {
   const [date, setDate] = useState("");
