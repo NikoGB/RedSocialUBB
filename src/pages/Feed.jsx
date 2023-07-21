@@ -4,8 +4,8 @@ import { UserContext } from '../utils/userContext';
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 import Home from '../components/Home';
-import PostPublish from "@/components/PostPublish";
-import Post from "@/components/Post";
+import PostPublish from "../components/PostPublish";
+import Post from "../components/Post";
 
 
 const Feed = ({showModal}) => {
