@@ -1,6 +1,6 @@
 import React from "react";
 import Home from '../components/Home';
-import ProfileDisplay from "../Components/profileDisplay"
+import ProfileDisplay from "../components/profileDisplay"
 import Link from 'next/link';
 
 const Profile = () => {
