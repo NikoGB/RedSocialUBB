@@ -40,138 +40,41 @@ export const UserProvider = ({ children }) => {
 
     const userInfo = async () => { //ONCE PER START OF PAGE
         if (!user) {
-            return {
-
+            const user = {
                 id : "0",
-                    username : "Jaime",
-                    correo : "AAA",
-                    foto_perfil : "/Img1.jpg",
-                    chats : [],
-                    amigos : [],
-                    publicaciones : [],
-                    comentarios: [],
-                    intereses: []
+                username : "Alfondo",
+                correo : "Alfonso@correo.com",
+                foto_perfil : "/Img1.jpg",
+                chats : [],
+                amigos : [],
+                publicaciones : [],
+                comentarios: [],
+                intereses: []
             }
-            /* const savedUser = localStorage.getItem('user');
-            if(savedUser){
-                const us = JSON.parse(savedUser);
-                setUser(us);
-                return us;
-            }else{ */
-            console.log(document.cookie.toString().split('; ').find((cookie) => cookie.startsWith(`user=`)).split("=")[1], "USERRRRRRRRRRRRRR")
-
-            return await requestUser(document.cookie.toString().split('; ').find((cookie) => cookie.startsWith(`user=`)).split("=")[1]).
-                then((us) => {
-                    console.log(us)
-                    setUser(us);
-
-                    const nChats = us.chats.map((chat) => {
-                        return { ...chat, active: false }
-                    })
-                    setChats(nChats);
-
-                    //localStorage.setItem('user', JSON.stringify(us));
-                    return us;
-                });
-            //}
+            setUser(user);
+            
+            return user
+           
 
         } else {
             return user
         }
     }
 
-    const requestUser = async (id) => {
-        const { buscarUsuarioId } = await clientRequester(
-            `query BuscarUsuarioId($id: ID!) {
-                buscarUsuarioId(id: $id) {
-                    id
-                    username
-                    correo
-                    foto_perfil
-                    carrera{
-                        id
-                    }
-                    chats{
-                        id
-                        nombre
-                        usuarios{
-                            id
-                        }
-                    }
-                    amigos{
-                        id
-                        username 
-                        foto_perfil
-                        nombre
-                        apellido
-                        carrera{
-                            nombre
-                        }
-                    }
-                    publicaciones{
-                        id
-                    }
-                    comentarios{
-                        id
-                    }
-                    intereses{
-                        tag{
-                            nombre
-                        }
-                        valor
-                    }
-                }
-            }`,
-            { id: id }, true).then((data) => { return data; })
-            .catch((error) => { throw error; })
-
-        return buscarUsuarioId;
-    }
+    useEffect(()=>{
+        userInfo()
+        setChats([])
+        setSocket(null)
+        setRecomendations([])
+        setFriendsPosts([])
+        setLastMsgChats([])
+        setIsNewMsgs(false)
+    }, [])
 
     const getLastMsgChats = async () => {
         if (!user) { return }
-        const { getLastMsgChats } = await clientRequester(
-            `query GetLastMsgChats($chats: [ID!]!) {
-                getLastMsgChats(chats: $chats) {
-                    id
-                    nombre
-                    usuarios{
-                        id
-                        username
-                        foto_perfil
-                    }
-                    mensajes { 
-                        id
-                        fecha
-                        usuario{
-                            id
-                            username
-                            foto_perfil
-                        }
-                        texto
-                        imagenes
-                        visto{
-                            id
-                        }
-                        recibido{
-                            id
-                        }
-                    }
-                }
-            }`,
-            { chats: user.chats.map((chat) => chat.id) }, false).then((data) => { return data; })
-            .catch((error) => { throw error; })
-
-        let isNew = false;
-        setLastMsgChats(getLastMsgChats.map((chat) => {
-            const newMsg = chat.mensajes[0].usuario.id !== user.id && !chat.mensajes[0].visto.some((us) => us.id === user.id);
-            if (newMsg) { isNew = true; }
-            return { ...chat, newMsg: newMsg }
-        }));
-
-        setIsNewMsgs(isNew);
-
-        return getLastMsgChats
+        setLastMsgChats([]);
+        return
     }
 
     const getRecomendations = async () => {

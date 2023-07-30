@@ -26,7 +26,7 @@ export default function Login({ screenWidth }) {
         if (!correoRegex.test(email)) {
             console.log("Email INCORRECTO:", email);
         } else {
-            const { buscarUsuarioCorreo } = await clientRequester(
+           /*  const { buscarUsuarioCorreo } = await clientRequester(
                 `query BuscarUsuarioCorreo($correo: String!) {
                     buscarUsuarioCorreo(correo: $correo) {
                         id
@@ -38,13 +38,14 @@ export default function Login({ screenWidth }) {
                 })
                 .catch((error) => {
                     throw error;
-                });
-
-            if (buscarUsuarioCorreo.length > 0) {
-                document.cookie = "user=" + buscarUsuarioCorreo[0].id + "; expires=Thu, 01 Jan 2024 00:00:00 UTC; path=/";
+                }); */
                 await userInfo();
                 router.push("/Feed");
-            }
+            /* if (buscarUsuarioCorreo.length > 0) {
+                //document.cookie = "user=" + buscarUsuarioCorreo[0].id + "; expires=Thu, 01 Jan 2024 00:00:00 UTC; path=/";
+                await userInfo();
+                router.push("/Feed");
+            } */
         }
     };
 

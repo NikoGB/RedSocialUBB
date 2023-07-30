@@ -32,6 +32,7 @@ export default function Home({ screenWidth, children }) {
             
             userInfo().then(info => {
                 console.log("Usuario Conectado", info)
+                console.log(info);
             })
         }
 
@@ -83,7 +84,9 @@ export default function Home({ screenWidth, children }) {
         };
     }, [isNavigating, actPage, router]);
 
-
+    if(!user){
+        return(<></>)
+    }
 
     return (<>
 

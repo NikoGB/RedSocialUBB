@@ -16,6 +16,7 @@ const Feed = ({showModal}) => {
 
 
     useEffect(() => {
+
         let transitionTimeout = null;
 
         if (isTransitioning) {
@@ -34,7 +35,6 @@ const Feed = ({showModal}) => {
             }
         };
     }, [isTransitioning]);
-
 
     return (<div className="lg:w-[55vw] lg:max-w-[90vw]  lg:px-10 w-[100vw] max-w-[100vw] mt-[80px] text-current z-10">
         <div className='flex  w-[calc(100%-10px)] justify-between  sm:text-[18px] text-[5vw]  mt-[20px] ml-[10px] items-center font-bold '>
@@ -62,7 +62,14 @@ const Feed = ({showModal}) => {
 }
 
 const FriendsFeed = ({ likePost, user, addComment, removePost, modal }) => {
-    const { getFriendsPosts, friendsPosts, addPost } = useContext(UserContext)
+    //const { getFriendsPosts, friendsPosts, addPost } = useContext(UserContext)
+    const friendsPosts = []
+    const getFriendsPosts = async ()=> {
+
+    }
+    const addPost = ()=> {
+
+    }
     const [postsChecked, setPostsChecked] = useState(false);
 
     useEffect(() => {
@@ -98,9 +105,12 @@ const FriendsFeed = ({ likePost, user, addComment, removePost, modal }) => {
 }
 
 const RecomendationsFeed = ({ user, addComment, likePost, removePost, modal }) => {
-    const { getRecomendations, recomendations } = useContext(UserContext)
+    //const { getRecomendations, recomendations } = useContext(UserContext)
     const [postsChecked, setPostsChecked] = useState(false);
-
+    const recomendations = []
+    const getRecomendations = async ()=> {
+        
+    }
     useEffect(() => {
         if (!recomendations || recomendations.length == 0) {
             getRecomendations(user.id).then(()=>{
